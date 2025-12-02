@@ -15,7 +15,7 @@ struct ListNode* novoNo( int val ) {
     return n;
 }
 
-void imprimirLista(struct ListNode* head) {
+void imprimirLista( struct ListNode* head ) {
     struct ListNode* p = head;
     while ( p != NULL ) {
         printf("%d ", p -> val);
@@ -23,6 +23,8 @@ void imprimirLista(struct ListNode* head) {
     }
     printf("\n");
 }
+
+void limpaLista( struct ListNode* head );
 
 int main() {
 
@@ -37,6 +39,7 @@ int main() {
     imprimirLista( head );
     head = rotateRight( head, k );
     imprimirLista( head );
+    limpaLista(head);
 }
 
 
@@ -67,4 +70,14 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
     ultimo -> next = head;
     novoFim -> next = NULL;
     return novaCabeca;
+}
+
+void limpaLista( struct ListNode* head ){
+    struct ListNode* aux;
+    while( head != NULL ){
+        aux = head;
+        head = head -> next;
+        free(aux);
+    }
+    
 }
