@@ -6,7 +6,7 @@ struct ListNode {
     struct ListNode* next;
 };
 
-struct ListNode* rotateRight(struct ListNode* head, int k);
+struct ListNode* rotateRight( struct ListNode* head, int k );
 
 struct ListNode* novoNo( int val ) {
     struct ListNode* n = malloc( sizeof ( struct ListNode ) );
@@ -17,9 +17,9 @@ struct ListNode* novoNo( int val ) {
 
 void imprimirLista(struct ListNode* head) {
     struct ListNode* p = head;
-    while (p != NULL) {
-        printf("%d ", p->val);
-        p = p->next;
+    while ( p != NULL ) {
+        printf("%d ", p -> val);
+        p = p -> next;
     }
     printf("\n");
 }
@@ -27,10 +27,10 @@ void imprimirLista(struct ListNode* head) {
 int main() {
 
     struct ListNode* head = novoNo( 1 );
-    head->next = novoNo( 2 );
-    head->next->next = novoNo( 3 );
-    head->next->next->next = novoNo( 4 );
-    head->next->next->next->next = novoNo( 5 );
+    head -> next = novoNo( 2 );
+    head -> next -> next = novoNo( 3 );
+    head -> next -> next -> next = novoNo( 4 );
+    head -> next -> next -> next -> next = novoNo( 5 );
 
     int k = 2;
 
@@ -46,12 +46,10 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
     struct ListNode* medidor;
     medidor = head;
 
-    while(medidor != NULL){
+    while( medidor != NULL ){
         medidor = medidor->next;
         tamanho++;
     }
-
-    k = k % tamanho;
 
     int pontoVirada = tamanho - k;
     
@@ -60,7 +58,7 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
         novoFim = novoFim->next;
     }
 
-    struct ListNode* novaCabeca = novoFim->next;
+    struct ListNode* novaCabeca = novoFim -> next;
 
     struct ListNode* ultimo = novaCabeca;
     while ( ultimo -> next != NULL ){
